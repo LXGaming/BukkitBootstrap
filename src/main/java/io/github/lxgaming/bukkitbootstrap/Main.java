@@ -77,8 +77,8 @@ public class Main {
 		Objects.requireNonNull(arguments);
 		for (Iterator<String> iterator = arguments.iterator(); iterator.hasNext();) {
 			String string = iterator.next();
-			iterator.remove();
 			if (string != null && string.equals(argument) && iterator.hasNext()) {
+				iterator.remove();
 				String value = iterator.next();
 				iterator.remove();
 				return Optional.of(value);
