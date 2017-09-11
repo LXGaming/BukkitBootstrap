@@ -1,0 +1,85 @@
+apply plugin: "java"
+
+def signFile = "sign.gradle"
+if (file(signFile).exists()) {
+    apply from: signFile
+}
+
+targetCompatibility = 1.8
+sourceCompatibility = 1.8
+
+group = "io.github.lxgaming"
+archivesBaseName = "BukkitBootstrap"
+version = "1.0.0"
+
+configurations {
+    provided {
+        compile.extendsFrom(provided)
+    }
+
+    build {
+        if (project.tasks.findByName("signJar")) {
+            return finalizedBy(signJar)
+        }
+
+        return doLast {
+            println("========== [WARNING] ==========")
+            println()
+            println("   This build is not signed!   ")
+            println()
+            println("========== [WARNING] ==========")
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url("https://libraries.minecraft.net/")
+    }
+    maven {
+        url("https://repo.spongepowered.org/maven")
+    }
+}
+
+dependencies {
+    provided(fileTree(dir: "./libs/", include: ["spigot-*.jar"]))
+    provided("com.google.code.gson:gson:2.8.0")
+    provided("com.google.guava:guava:21.0")
+    provided("commons-io:commons-io:2.5")
+    compile("net.minecraft:launchwrapper:1.12")
+    provided("org.apache.logging.log4j:log4j-api:2.8.1")
+    provided("org.apache.logging.log4j:log4j-core:2.8.1")
+    provided("org.lwjgl.lwjgl:lwjgl:2.9.4-nightly-20150209")
+    compile("org.slf4j:slf4j-simple:1.7.25")
+    compile("org.spongepowered:mixin:0.7.3-SNAPSHOT")
+}
+
+jar {
+    manifest {
+        attributes(
+            "Main-Class": "io.github.lxgaming.bukkitbootstrap.Main",
+            "MixinConfigs": "mixins.bukkitbootstrap.json")
+    }
+
+    from {
+        (configurations.compile - configurations.provided).collect {
+            if (it.isDirectory()) {
+                return it
+            }
+            return zipTree(it)
+        }
+    }
+
+    exclude("META-INF/MUMFREY.RSA")
+    exclude("META-INF/MUMFREY.SF")
+    exclude("Log4j-config.xsd")
+    exclude("Log4j-events.dtd")
+    exclude("Log4j-events.xsd")
+    exclude("log4j2.xml")
+}
+
+processResources {
+    from("LICENSE")
+    rename("LICENSE", "LICENSE-" + archivesBaseName)
+}
