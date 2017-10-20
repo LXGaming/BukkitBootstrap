@@ -52,7 +52,7 @@ public class MixinCraftPlayer extends CraftHumanEntity {
 	 */
 	@Overwrite
 	public void addChannel(String channel) {
-		Preconditions.checkState(getChannels().size() < 512, "Too many channels registered");
+		Preconditions.checkState(getChannels().size() < 1024, "Too many channels registered");
 		if (getChannels().add(channel)) {
 			Bukkit.getServer().getPluginManager().callEvent(new PlayerRegisterChannelEvent(Bukkit.getPlayer(getUniqueId()), channel));
 		}

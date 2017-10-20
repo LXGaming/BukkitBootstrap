@@ -33,7 +33,7 @@ configurations {
 }
 
 repositories {
-    mavenCentral()
+    jcenter()
     maven {
         url("https://libraries.minecraft.net/")
     }
