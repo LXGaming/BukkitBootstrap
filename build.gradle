@@ -67,6 +67,7 @@ jar {
             if (it.isDirectory()) {
                 return it
             }
+
             return zipTree(it)
         }
     }
