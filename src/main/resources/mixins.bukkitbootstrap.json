@@ -1,11 +1,15 @@
 {
-    "required": true,
-    "minVersion": "0.7.3",
-    "package": "io.github.lxgaming.bukkitbootstrap.mixin",
-    "target": "@env(DEFAULT)",
-    "compatibilityLevel": "JAVA_8",
-    "mixins": [
-        "MixinCraftPlayer",
-        "MixinDedicatedServer"
-    ]
+  "required": true,
+  "minVersion": "0.7.5",
+  "package": "io.github.lxgaming.bukkitbootstrap.mixin",
+  "refmap": "mixins.bukkitbootstrap.refmap.json",
+  "target": "@env(DEFAULT)",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinCraftPlayer",
+    "MixinDedicatedServer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

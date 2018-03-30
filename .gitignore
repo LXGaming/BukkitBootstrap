@@ -1,64 +1,89 @@
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
+# Build
+.checkstyle
+MANIFEST.MF
+dependency-reduced-pom.xml
 
-# Folder config file
-Desktop.ini
+# Compiled
+/target
+bin
+build
+dist
+lib
+out
+run
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+# Databases
+*.db
+*.sql
+*.sqlite
 
-# Windows Installer files
+# Logging
+/logs
+*.log
+
+# Misc
+*.bak
+
+# Packages
+*.7z
 *.cab
+*.dmg
+*.gz
+*.iso
 *.msi
 *.msm
 *.msp
+*.rar
+*.tar
+*.zip
 
-# Windows shortcuts
-*.lnk
+# Project
+.classpath
+.externalToolBuilders
+.gradle
+.idea
+.nb-gradle
+.project
+.settings
+atlassian-ide-plugin.xml
+build.xml
+nb-configuration.xml
+nbproject
+build.bat
+*.iml
+*.ipr
+*.iws
+*.launch
 
-# =========================
-# Operating System Files
-# =========================
+# Repository
+.git
 
-# OSX
-# =========================
-
-.DS_Store
+# System - macOS
+.AppleDB
+.AppleDesktop
 .AppleDouble
-.LSOverride
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
+.DS_Store
 .DocumentRevisions-V100
-.fseventsd
+.LSOverride
 .Spotlight-V100
 .TemporaryItems
 .Trashes
 .VolumeIcon.icns
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
+._*
+.apdisk
+.fseventsd
 Network Trash Folder
 Temporary Items
-.apdisk
 
-# Eclipse project
-.settings
-.classpath
-.project
-client.launch
-server.launch
-
-# Maven project
-target
-
-# Gradle project
-.gradle
-libs
-bin
-build
-build.bat
+# System - Windows
+$RECYCLE.BIN/
+Desktop.ini
+Thumbs.db
+ehthumbs.db
+*.lnk

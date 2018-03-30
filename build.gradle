@@ -6,12 +6,14 @@ targetCompatibility = 1.8
 
 group = "io.github.lxgaming"
 archivesBaseName = "BukkitBootstrap"
-version = "1.0.0"
+version = "1.0.1"
 
 configurations {
     provided {
         compile.extendsFrom(provided)
     }
+
+    build.dependsOn("signJar")
 }
 
 repositories {
@@ -37,14 +39,15 @@ dependencies {
     annotationProcessor("org.apache.logging.log4j:log4j-core:2.8.1")
     provided("org.lwjgl.lwjgl:lwjgl:2.9.4-nightly-20150209")
     compile("org.slf4j:slf4j-simple:1.7.25")
-    compile("org.spongepowered:mixin:0.7.3-SNAPSHOT")
+    compile("org.spongepowered:mixin:0.7.5-SNAPSHOT")
 }
 
 jar {
     manifest {
         attributes(
             "Main-Class": "io.github.lxgaming.bukkitbootstrap.Main",
-            "MixinConfigs": "mixins.bukkitbootstrap.json")
+            "MixinConfigs": "mixins.bukkitbootstrap.json"
+        )
     }
 
     from {
