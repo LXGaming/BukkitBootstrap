@@ -56,6 +56,7 @@ build.xml
 nb-configuration.xml
 nbproject
 build.bat
+build.ps1
 *.iml
 *.ipr
 *.iws

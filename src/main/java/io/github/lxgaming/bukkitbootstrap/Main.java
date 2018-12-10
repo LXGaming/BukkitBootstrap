@@ -73,8 +73,7 @@ public class Main {
         }
     }
     
-    private static Optional<String> getArgument(List<String> arguments, String argument) throws NullPointerException {
-        Objects.requireNonNull(arguments);
+    private static Optional<String> getArgument(List<String> arguments, String argument) {
         for (Iterator<String> iterator = arguments.iterator(); iterator.hasNext(); ) {
             String string = iterator.next();
             if (string != null && string.equals(argument) && iterator.hasNext()) {
@@ -101,8 +100,7 @@ public class Main {
     }
     
     @SafeVarargs
-    public static <E> ArrayList<E> newArrayList(E... elements) throws NullPointerException {
-        Objects.requireNonNull(elements);
+    public static <E> ArrayList<E> newArrayList(E... elements) {
         return Stream.of(elements).collect(Collectors.toCollection(ArrayList::new));
     }
 }
