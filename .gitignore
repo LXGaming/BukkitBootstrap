@@ -52,11 +52,12 @@ run
 .project
 .settings
 atlassian-ide-plugin.xml
-build.xml
-nb-configuration.xml
-nbproject
 build.bat
 build.ps1
+build.xml
+local.properties
+nb-configuration.xml
+nbproject
 *.iml
 *.ipr
 *.iws
