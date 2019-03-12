@@ -84,7 +84,7 @@ task signJar {
     }
 
     doLast {
-        jar.outputs.files.each {
+        configurations.archives.allArtifacts.files.each {
             ant.signjar(
                 jar: it,
                 alias: project.property("signing.alias"),
