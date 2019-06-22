@@ -23,5 +23,5 @@ public class Reference {
     public static final String APP_VERSION = "1.0.1";
     public static final String AUTHORS = "LX_Gaming";
     public static final String SOURCE = "https://github.com/LXGaming/BukkitBootstrap";
-    public static final String WEBSITE = "https://lxgaming.github.io";
+    public static final String WEBSITE = "https://lxgaming.github.io/";
 }
